@@ -7,3 +7,5 @@ function Money() {
     </Layout>
     );
   }
+
+  export default Money

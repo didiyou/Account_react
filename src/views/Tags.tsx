@@ -7,3 +7,5 @@ function Tags() {
     </Layout>
     );
   }
+
+  export default Tags

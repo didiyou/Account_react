@@ -7,3 +7,5 @@ function Statistics() {
     </Layout>
     );
   }
+
+  export default Statistics

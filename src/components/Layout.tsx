@@ -20,7 +20,9 @@ return(
         <Main>
             {props.children}
         </Main>
+        <Nav/>
     </Wrapper>
 )
-
 }
+
+export default Layout

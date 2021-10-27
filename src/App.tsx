@@ -1,9 +1,9 @@
 import React from 'react';
 import Nav from './components/Nav'
 import Tags from 'views/Tags'
-import Tags from 'views/Money'
-import Tags from 'views/Statistics'
-import Tags from 'views/NoMatch'
+import Money from 'views/Money'
+import Statistics from 'views/Statistics'
+import NoMatch from 'views/NoMatch'
 
 import styled from 'styled-components'
 import {
