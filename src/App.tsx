@@ -14,11 +14,14 @@ import {
   Link
 } from "react-router-dom";
 
-
+const AppWrapper = styled.div`
+color:#333'
+`
 
 
 function App() {
   return (
+    <AppWrapper>
     <Router>
       
         <Switch>
@@ -38,6 +41,7 @@ function App() {
         </Switch>
         
     </Router>
+    </AppWrapper>
   );
 }
 
