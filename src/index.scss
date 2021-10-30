@@ -28,3 +28,9 @@ body{
 button{
     font-family: inherit;
 }
+
+.clearfix::after{ //这里为什么要用伪元素
+    content:'';
+    display:block;
+    clear:both;
+}
