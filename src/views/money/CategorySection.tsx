@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import React,{useState} from 'react'
-import { ProgressPlugin } from 'webpack'
 const Wrapper = styled.section`
 font-size: 24px;
 >ul{

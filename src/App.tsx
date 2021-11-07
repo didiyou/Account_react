@@ -1,9 +1,10 @@
-import React from 'react';
-import Nav from './components/Nav'
+
 import Tags from 'views/Tags'
 import Money from 'views/Money'
 import Statistics from 'views/Statistics'
 import NoMatch from 'views/NoMatch'
+import {Tag} from 'views/Tag'
+
 
 import styled from 'styled-components'
 import {
@@ -26,13 +27,16 @@ function App() {
       
         <Switch>
         <Redirect exact from="/" to="/money" />
-          <Route path="/tags">
+          <Route exact path="/tags">
             <Tags />
           </Route>
-          <Route path="/money">
+          <Route exact path="/tags/:id">
+          <Tag/>
+          </Route>
+          <Route exact path="/money">
             <Money />
           </Route>
-          <Route path="/Statistics"> 
+          <Route exact path="/Statistics"> 
             <Statistics />
           </Route>
           <Route path="*">

@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import React,{useState,useRef} from 'react'
 
 const Wrapper = styled.section`
 display:flex;

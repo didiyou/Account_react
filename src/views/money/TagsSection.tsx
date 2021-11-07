@@ -1,6 +1,7 @@
-import React,{useState} from 'react'
+import React from 'react'
 import styled from 'styled-components'
-
+import {useTags} from 'useTags'
+import {Id} from '../../lib/Id'
 const Wrapper = styled.section`
 background:#ffffff;
 padding:12px 16px;
@@ -31,28 +32,28 @@ align-items: flex-start;
 }
 `
 type Props = { 
-    value: string[] 
-    onChange:(value:string[])=>void
+    value: number[] 
+    onChange:(value:number[])=>void
 }
 
 const TagsSection:React.FC<Props> = (props)=>{
-    const [tags,setTags] = useState<string[]>(['衣','食','住','行'])
-    const selectedTags = props.value
+    const {tags,setTags} = useTags()
+    const selectedTagIds = props.value
     const onAddTag = ()=>{
         const tagName = window.prompt('新标签的名称为')
-        if (tagName !== null){setTags([...tags,tagName])}
+        if (tagName !== null){setTags([...tags,{id:(new Id).value,name:tagName}])}
     }
-    const onToggleTag=(tag:string)=>{
-        const index = selectedTags.indexOf(tag)
-        if(index >= 0){props.onChange(selectedTags.filter(t=>t!==tag))
+    const onToggleTag=(tagId:number)=>{
+        const index = selectedTagIds.indexOf(tagId)
+        if(index >= 0){props.onChange(selectedTagIds.filter(t=>t!==tagId))
         }
-    else{props.onChange([...selectedTags,tag])}
+    else{props.onChange([...selectedTagIds,tagId])}
         
 }
     return (
     <Wrapper>
      <ol>
-       {tags.map(tag=><li key={tag} onClick={()=>{onToggleTag(tag)}} className={selectedTags.indexOf(tag)>=0 ?'selected' :''}>{tag}</li>)}
+       {tags.map(tag=><li key={tag.id} onClick={()=>{onToggleTag(tag.id)}} className={selectedTagIds.indexOf(tag.id)>=0 ?'selected' :''}>{tag.name}</li>)}
      </ol>
      <button onClick={onAddTag}>新增标签</button>
     </Wrapper>

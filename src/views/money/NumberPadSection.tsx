@@ -1,6 +1,6 @@
 import {Wrapper} from './NumberPadSection/Wrapper'
 import {generateOutput} from './NumberPadSection/generateOutput'
-import React,{useState} from 'react'
+import React from 'react'
 type Props = {
     value: number;
     onChange:(value:number) => void;
