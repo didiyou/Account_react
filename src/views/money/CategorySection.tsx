@@ -4,7 +4,7 @@ const Wrapper = styled.section`
 font-size: 24px;
 >ul{
   display:flex;
-  background:#c4c4c4;
+  
   
   >li{
     padding:16px 0;

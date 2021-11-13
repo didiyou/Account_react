@@ -5,7 +5,7 @@ const Label = styled.label`
     display:flex;
     align-items: center;
     > span{margin-right:16px;white-space:nowrap;}
-    > input{display:block;width:100%;height:72px;background:none;border:none;}
+    > input{display:block;width:100%;height:44px;background:none;border:none;}
 `
 type Props = {
     label:string;
@@ -16,7 +16,7 @@ const Input:React.FC<Props> = (props)=>{
     const {label,children,...rest} = props
     return(
       <Label>
-        <span>备注</span>
+        <span>{props.label}</span>
         <input {...rest}/>
       </Label>
     )

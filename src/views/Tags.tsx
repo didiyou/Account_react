@@ -1,10 +1,12 @@
 import Layout from 'components/Layout'
-import React from 'react';
-import {useTags} from 'useTags'
+import {useTags} from 'hooks/useTags'
 import styled from 'styled-components'
 import Icon from '../components/Icon'
 import {Link} from 'react-router-dom'
 import {Button} from 'components/Button'
+import {Center} from 'components/Center'
+import {Space} from 'components/Space'
+
 const TagList = styled.ol`
   font-size:16px;
   > li{
@@ -23,22 +25,16 @@ const TagList = styled.ol`
   }
 `
 
-const  Center = styled.div`
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-`
 
-const Space = styled.div`
-  height:16px;
-`
+
+
 function Tags() {
-    const {tags}=useTags()
+    const {tags,addTag}=useTags()
+    console.log('tags组件执行了')
     return (
     <Layout>
       <TagList>
-        {tags.map(tag=><li key={tag.id}>
+        {tags && tags.map(tag=><li key={tag.id}>
           <Link to={'/tags/'+tag.id}>
           <span className='oneLine'>{tag.name}</span>
           <Icon name="arrow_right"/>
@@ -48,7 +44,7 @@ function Tags() {
       <Center>
       <Space/>
       <Space/>
-      <Button>新增标签</Button>
+      <Button onClick={addTag}>新增标签</Button>
       </Center>
     </Layout>
     );

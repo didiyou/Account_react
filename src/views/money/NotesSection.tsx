@@ -3,14 +3,9 @@ import React,{useRef} from 'react'
 import {Input} from 'components/Input'
 
 const Wrapper = styled.section`
-padding:0 16px;
+padding:14px 16px;
 font-size:14px;
-> label{
-  display:flex;
-  align-items: center;
-  > span{margin-right:16px;white-space:nowrap;}
-  > input{display:block;width:100%;height:72px;background:none;border:none;}
-}
+background:#f5f5f5;
 `
 type Props ={
     value:string;
@@ -23,7 +18,7 @@ const NoteSection:React.FC<Props>= (props)=>{
    
     return (
     <Wrapper> 
-      <Input label='备注' type='text' defaultValue = {note} onChange={onChange}/>
+      <Input  label='备注' type='text' defaultValue = {note} onChange={onChange} placeholder='请填写备注'/>
     </Wrapper>
     )
 }

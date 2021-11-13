@@ -1,6 +1,7 @@
+import { directive } from '@babel/types'
 import React from 'react'
 import styled from 'styled-components'
-import {useTags} from 'useTags'
+import {useTags} from 'hooks/useTags'
 import {Id} from '../../lib/Id'
 const Wrapper = styled.section`
 background:#ffffff;
@@ -37,12 +38,9 @@ type Props = {
 }
 
 const TagsSection:React.FC<Props> = (props)=>{
-    const {tags,setTags} = useTags()
+    const {tags,setTags,addTag} = useTags()
     const selectedTagIds = props.value
-    const onAddTag = ()=>{
-        const tagName = window.prompt('新标签的名称为')
-        if (tagName !== null){setTags([...tags,{id:(new Id).value,name:tagName}])}
-    }
+   
     const onToggleTag=(tagId:number)=>{
         const index = selectedTagIds.indexOf(tagId)
         if(index >= 0){props.onChange(selectedTagIds.filter(t=>t!==tagId))
@@ -55,12 +53,10 @@ const TagsSection:React.FC<Props> = (props)=>{
      <ol>
        {tags.map(tag=><li key={tag.id} onClick={()=>{onToggleTag(tag.id)}} className={selectedTagIds.indexOf(tag.id)>=0 ?'selected' :''}>{tag.name}</li>)}
      </ol>
-     <button onClick={onAddTag}>新增标签</button>
+     <button onClick={addTag}>新增标签</button>
     </Wrapper>
     )
 }
-
-
 
 
 export {TagsSection}
