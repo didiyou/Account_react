@@ -6,7 +6,6 @@ import Icon from './Icon'
 
 
 const NavWrapper = styled.nav`
-border:1px solid blue;
 line-height:24px;
 box-shadow:0 0 3px rgba(0,0,0,0.25);
 background:white;
@@ -48,18 +47,18 @@ const Nav =()=>{
             
               <NavLink to="/tags" exact activeClassName="selected">
               <Icon name='tag'/>
-                标签页</NavLink>
+                标签</NavLink>
             </li>
             <li>
               <NavLink to="/money" activeClassName="selected">
               <Icon name='money'/>
-                记账页</NavLink>
+                记账</NavLink>
             </li>
             <li>
             
               <NavLink to="/Statistics" activeClassName="selected">
               <Icon name='chart'/>
-                统计页</NavLink>
+                记录</NavLink>
             </li>
           </ul>
         </NavWrapper>

@@ -12,7 +12,6 @@ import {
   Switch,
   Redirect,
   Route,
-  Link
 } from "react-router-dom";
 
 const AppWrapper = styled.div`

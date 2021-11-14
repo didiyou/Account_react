@@ -24,15 +24,17 @@ const TagList = styled.ol`
     }
   }
 `
-
+const TagWrapper = styled.div`
+ padding:16px 0;
+`
 
 
 
 function Tags() {
     const {tags,addTag}=useTags()
-    console.log('tags组件执行了')
     return (
     <Layout>
+      <TagWrapper>
       <TagList>
         {tags && tags.map(tag=><li key={tag.id}>
           <Link to={'/tags/'+tag.id}>
@@ -41,6 +43,7 @@ function Tags() {
           </Link>
         </li>)}
       </TagList>
+      </TagWrapper>
       <Center>
       <Space/>
       <Space/>

@@ -1,6 +1,6 @@
 
 import { useUpdate } from 'hooks/useUpdate'
-import {useState,useEffect,useRef} from 'react'
+import {useState,useEffect} from 'react'
 import {Id} from '../lib/Id'
 
 
@@ -12,17 +12,17 @@ const useTags = ()=>{
         if(localTags.length === 0)
         {
             localTags = [
-                {id:(new Id).value,name:'衣'},
-                {id:(new Id).value,name:'食'},
-                {id:(new Id).value,name:'住'},
-                {id:(new Id).value,name:'行'},
+                {id:(new Id()).value,name:'衣'},
+                {id:(new Id()).value,name:'食'},
+                {id:(new Id()).value,name:'住'},
+                {id:(new Id()).value,name:'行'},
             ]
         }
         setTags(localTags)
     },[])
     useUpdate(()=>{
         (window as any).localStorage.setItem('tags',JSON.stringify(tags))}
-    ,[tags])
+    ,tags)
     const findTag = (id:number) =>tags.filter(tag=>tag.id === id)[0]
     const updateTag = (id:number,{name}:{name:string})=>{
         setTags(tags.map(tag=>tag.id===id?{id,name}:tag))
@@ -32,7 +32,7 @@ const useTags = ()=>{
     }
     const addTag = ()=>{
         const tagName = window.prompt('新标签的名称为')
-        if (tagName !== null && tagName !== ''){setTags([...tags,{id:(new Id).value,name:tagName}])}
+        if (tagName !== null && tagName !== ''){setTags([...tags,{id:(new Id()).value,name:tagName}])}
     }
     const getName = (id:number)=>{
         const tag = tags.filter(t=>t.id===id)[0]

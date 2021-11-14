@@ -1,8 +1,7 @@
-import { directive } from '@babel/types'
+
 import React from 'react'
 import styled from 'styled-components'
 import {useTags} from 'hooks/useTags'
-import {Id} from '../../lib/Id'
 const Wrapper = styled.section`
 background:#ffffff;
 padding:12px 16px;
@@ -38,7 +37,7 @@ type Props = {
 }
 
 const TagsSection:React.FC<Props> = (props)=>{
-    const {tags,setTags,addTag} = useTags()
+    const {tags,addTag} = useTags()
     const selectedTagIds = props.value
    
     const onToggleTag=(tagId:number)=>{

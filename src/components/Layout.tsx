@@ -1,28 +1,44 @@
 import Nav from './Nav'
-import React from 'react'
+import React,{useRef,useEffect} from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-border:1px solid red;
-min-height:100vh;
+height:100vh;
 display: flex;
 flex-direction:column;
+
 `
 const Main = styled.div`
   
   flex-grow:1;
   overflow:auto;
+  
 `
-
-const Layout = (props:any) =>{
+type Props = {
+    className?:string;
+    scrollTop?:number;
+}
+const Layout:React.FC<Props> = (props) =>{
+const mainRef = useRef<HTMLDivElement>(null)
+useEffect(()=>{
+    setTimeout(()=>{
+     if(!mainRef.current){return;}
+     mainRef.current.scrollTop = props.scrollTop!
+     console.log(mainRef.current)
+     console.log('scrollTop is:',mainRef.current.scrollTop)
+    },0)
+    },[props.scrollTop])
+    
 return(
     <Wrapper>
-        <Main className={props.className}>
+        <Main ref={mainRef} className={props.className}>
             {props.children}
         </Main>
         <Nav/>
     </Wrapper>
 )
 }
-
+Layout.defaultProps = {
+    scrollTop:0
+}
 export default Layout

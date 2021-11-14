@@ -23,8 +23,10 @@ const NumberPadSection:React.FC<Props> = (props)=>{
         props.onChange(parseFloat(newOutput))
     }
     
+    
     const onClickButtonWrapper = (e:React.MouseEvent)=>{
-    const text = (e.target as HTMLButtonElement).textContent 
+    const text = (e.target as HTMLButtonElement).textContent
+        
         if(text===null){return}
         if(text ==='OK')
         {(props.onOk && props.onOk())}
@@ -33,7 +35,7 @@ const NumberPadSection:React.FC<Props> = (props)=>{
     }
     return(
         <Wrapper>
-      <div className='output'>
+      <div className='output'>  
          {output}
       </div>
       <div className='pad clearfix' onClick={onClickButtonWrapper}>

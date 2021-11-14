@@ -26,7 +26,7 @@ type newRecordItem = Omit<RecordItem,'createdAt'>
         setRecords([...records,record])
         return true
     }
-    useUpdate(()=>{window.localStorage.setItem('records',JSON.stringify(records))},[records])
+    useUpdate(()=>{window.localStorage.setItem('records',JSON.stringify(records))},records)
     return{
         records,
         addRecord

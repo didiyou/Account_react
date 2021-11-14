@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import {useState} from 'react';
 import Layout from 'components/Layout'
 import styled from 'styled-components'
 import {TagsSection} from 'views/money/TagsSection'
@@ -39,17 +39,13 @@ function Money() {
    }
    console.log('外部amount is:',selected.amount)
     return (
-    <MyLayout>
-    <TagsSection value={selected.tagIds} onChange={tagIds=>onChange({tagIds:tagIds})}>
-    </TagsSection>
-    <NoteSection value={selected.note} onChange={note=>onChange({note:note})}> 
-    </NoteSection>
+    <MyLayout scrollTop={9999}>
+    <TagsSection value={selected.tagIds} onChange={tagIds=>onChange({tagIds:tagIds})}/>
+    <NoteSection value={selected.note} onChange={note=>onChange({note:note})}/> 
     <CategoryWrapper>
-     <CategorySection value={selected.category} onChange={category=>onChange({category} )}>
-     </CategorySection>
-     </CategoryWrapper>
-     <NumberPadSection value={selected.amount} onChange={amount=>onChange({amount})} onOk={submit}> 
-     </NumberPadSection>
+    <CategorySection value={selected.category} onChange={category=>onChange({category} )}/>
+    </CategoryWrapper>
+    <NumberPadSection value={selected.amount} onChange={amount=>onChange({amount})} onOk={submit}/> 
     </MyLayout>
     );
   }
