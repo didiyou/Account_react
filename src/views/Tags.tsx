@@ -13,7 +13,6 @@ const TagList = styled.ol`
 
     border-bottom:1px solid #d5d5d9;
     line-height:20px;
-    
     margin-left:16px;
     
     > a{

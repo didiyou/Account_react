@@ -62,7 +62,6 @@ function Statistics() {
              <div className='tags'>
                {r.tagIds.map(tagId=><span key={tagId}>{getName(tagId)}</span>)
                .reduce((result,span,index,array)=>
-               
                result.concat(index<array.length-1?[span,'，']:span),[] as ReactNode[])
                }
              </div>

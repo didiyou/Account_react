@@ -8,7 +8,6 @@ import {NumberPadSection} from 'views/money/NumberPadSection'
 import {useRecords} from 'hooks/useRecords'
 
 const MyLayout = styled(Layout)`
-  border:1px solid red;
   display:flex;
   flex-direction:column;
 `
@@ -24,6 +23,7 @@ const CategoryWrapper = styled.div`
 `
 type Category = '-' |'+'
 function Money() {
+  console.log('父组件money加载')
   const [selected,setSelected] = useState(defaultFormData)
    const {addRecord} = useRecords()
    const onChange = (obj:Partial<typeof selected>)=>{

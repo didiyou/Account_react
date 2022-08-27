@@ -12,6 +12,7 @@ type Props ={
     onChange:(value:string) =>void;
 }
 const NoteSection:React.FC<Props>= (props)=>{
+  console.log('NoteSection加载')
     const note = props.value
     const onChange:React.ChangeEventHandler<HTMLInputElement> = (e)=>{ 
     props.onChange(e.target.value)}

@@ -29,6 +29,7 @@ const InputWrapper = styled.div`
 `
 
 
+
 const Tag:React.FC =(props)=>{
     const {findTag,updateTag,deleteTag} = useTags()
     let {id:idString} = useParams<Params>()
@@ -61,8 +62,10 @@ const Tag:React.FC =(props)=>{
         <Icon/>
         </Topbar>
         {tag?tagContent(tag):<Center>找不到标签</Center>} 
-        </Layout>
+        </Layout> 
     )
     }
 
 export {Tag}
+
+

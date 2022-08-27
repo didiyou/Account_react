@@ -5,7 +5,6 @@ import Statistics from 'views/Statistics'
 import NoMatch from 'views/NoMatch'
 import {Tag} from 'views/Tag'
 
-
 import styled from 'styled-components'
 import {
   HashRouter as Router,
@@ -23,7 +22,6 @@ function App() {
   return (
     <AppWrapper>
     <Router>
-      
         <Switch>
         <Redirect exact from="/" to="/money" />
           <Route exact path="/tags">
